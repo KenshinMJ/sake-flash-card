@@ -8,10 +8,32 @@
   --gold: #a9812f;
   --card: #fffdf8;
   --line: #d8cdb4;
+
+  --background: var(--washi);
+  --foreground: var(--ink);
 }
 
 * {
   box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: var(--washi);
+  }
+
+  .sub {
+    color: #7e7461;
+  }
+
+  .prompt {
+    color: var(--vermilion);
+  }
+
+  .chip {
+    color: var(--ink);
+  }
 }
 
 @theme inline {
@@ -19,18 +41,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-noto-sans-jp: var(--font-noto-sans-jp);
 }
 
 body {
   margin: 0;
-  background: var(--washi);
+  background: var(--color-background);
   background-image:
     radial-gradient(
       circle at 20% 10%,
@@ -42,23 +58,16 @@ body {
       rgba(177, 56, 44, 0.04) 0,
       transparent 50%
     );
-  color: var(--ink);
+  color: var(--color-foreground);
   align-items: flex-start;
 }
 
-/* .app {
-  width: 100%;
-  max-width: 520px;
-} */
 header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 1.5rem;
 }
 .kicker {
-  font-size: 12px;
-  letter-spacing: 0.3em;
   color: var(--vermilion);
-  font-weight: 700;
 }
 h1 {
   font-family: "Shippori Mincho", serif;
@@ -68,7 +77,7 @@ h1 {
   letter-spacing: 0.06em;
 }
 .sub {
-  font-size: 13px;
+  font-size: 1rem;
   color: #6b6252;
 }
 
@@ -76,14 +85,12 @@ h1 {
   display: flex;
   gap: 0;
   border-bottom: 1px solid var(--line);
-  margin-bottom: 24px;
+  margin-bottom: 1rem;
 }
 .tab {
   flex: 1;
   text-align: center;
   padding: 12px 8px;
-  font-size: 14px;
-  font-weight: 500;
   color: #8a8170;
   cursor: pointer;
   position: relative;
@@ -92,7 +99,7 @@ h1 {
   font-family: inherit;
 }
 .tab.active {
-  color: var(--ink);
+  color: var(--color-foreground);
   font-weight: 700;
 }
 .tab.active::after {
@@ -217,7 +224,7 @@ h1 {
 }
 .answer-sub {
   font-size: 13px;
-  color: #6b6252;
+  color: #837865;
 }
 .answer-list {
   display: flex;
@@ -249,7 +256,7 @@ h1 {
   align-items: center;
   justify-content: center;
   font-family: "Shippori Mincho", serif;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 700;
   opacity: 0;
   transform: rotate(-8deg) scale(1.4);
@@ -281,7 +288,7 @@ button.action {
 }
 button.action.ghost {
   background: transparent;
-  color: var(--ink);
+  color: var(--color-foreground);
   border: 1px solid var(--line);
 }
 button.action:active {

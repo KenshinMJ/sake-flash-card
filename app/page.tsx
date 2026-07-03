@@ -603,10 +603,9 @@ export default function Home() {
   }
 
   return (
-    <div className="w-full flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="w-full flex flex-col flex-1 items-center justify-center font-sans py-1">
       <header>
-        <div className="kicker">SAKE FLASHCARDS</div>
-        <h1>銘酒暗記帳</h1>
+        <h1 className="kicker">銘酒暗記帳</h1>
         <div className="sub">銘柄・都道府県・酒造を覚える一問一答</div>
       </header>
 
